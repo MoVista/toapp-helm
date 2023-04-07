@@ -1,0 +1,48 @@
+# Define the default values for the parameters
+# These values can be overridden when the chart is installed
+# using the --set flag or by providing a values.yaml file
+name: toapp-demo
+project: default
+repoURL: https://github.com/MoVista/toapp-helm.git
+path: /Users/rhussain/2023/ns_evaluate/helm_pipeline/test-helm/Chart.yaml
+valueFiles:
+  -   /Users/rhussain/2023/ns_evaluate/helm_pipeline/iac/demo/values.yaml
+namespace: default
+image: movista/toapp:1.0.11
+protocol: TCP
+imagepullpolicy: Always
+label: toapp-demo
+containername: toappcontainer
+replica: 3
+port: 80
+port1: 8501
+targetport: 8501
+serviceAccountName: 'pipeline'
+servicetype: LoadBalancer
+# The revision of the build, i.e. the commit revision of the application repository
+buildRevision: "0d4a7e9a0ae385915bcfad5759328bd6ab8ed2ac"
+
+# The application repository
+appGitUrl: 'git@github.com:MoVista/randa_territory.git'
+
+# The application config (GitOps) repository
+configGitUrl: 'git@github.com:MoVista/Pipelinesample.git'
+
+# The application Docker image name
+appImage: 'movista/toapp:T.1.0.0'
+
+# The name of the ArgoCD application to be deployed
+argoAppName: 'test-helm'
+
+# The gateway for the system and smoke tests
+#gateway: "example.com"
+#
+## The environment to deploy to
+#environment: "dev"
+
+repo-url: https://github.com/MoVista/toapp-helm.git
+chart-path: .
+values-file-path: ./iac/dev/values.yaml
+release-name: myrelease
+namespace: mynamespace
+wait: "true"
